@@ -21,13 +21,25 @@ export const productRouter = t.router({
           hidden: input.hidden,
           image: input.image,
           price: input.price,
-          quantity: input.quantity
+          quantity: input.quantity,
         },
       });
       return product;
     }),
-  getAllProducts: t.procedure
-    .query(async ({ ctx }) => {
+  getAllProducts: t.procedure.query(async ({ ctx }) => {
     return await ctx.prisma.product.findMany();
   }),
+  getProductByID: t.procedure
+    .input(
+      z.object({
+        id: z.string(),
+      })
+    )
+    .query(async ({ ctx, input }) => {
+      return await ctx.prisma.product.findUnique({
+        where: {
+          id: input.id,
+        },
+      });
+    }),
 });

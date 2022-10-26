@@ -29,6 +29,7 @@ model Account {
     @@unique([provider, providerAccountId])
 }
 
+// Necessary for Next auth
 model Session {
     id           String   @id @default(cuid())
     sessionToken String   @unique
@@ -37,6 +38,7 @@ model Session {
     user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
+// Necessary for Next auth
 model User {
     id            String    @id @default(cuid())
     name          String?
@@ -48,6 +50,7 @@ model User {
     sessions      Session[]
 }
 
+// Necessary for Next auth
 model VerificationToken {
     identifier String
     token      String   @unique
@@ -55,6 +58,8 @@ model VerificationToken {
 
     @@unique([identifier, token])
 }
+
+// Custom Models
 
 model Product {
     id          String   @id @default(cuid())
