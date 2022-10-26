@@ -18,7 +18,7 @@ const Product = ({ product }: Props) => {
   };
 
   return (
-    <div className="mb-12 border border-gray-200 p-8 hover:border-gray-400">
+    <div className="mb-12 border border-gray-200 p-8 hover:border-gray-400 rounded-md">
       <Image
         src={product.image as string}
         alt={product.name}

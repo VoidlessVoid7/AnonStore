@@ -26,13 +26,13 @@ const Admin: NextPage = () => {
   }
 
   useEffect(() => {
-    if (session && session?.user?.role != "admin") {
+    if (!session || session?.user?.role != "admin") {
       router.push("/");
     }
   }, []);
 
-  if (session && session?.user?.role != "admin") {
-    return <div>Unauthorized</div>
+  if (!session || session?.user?.role != "admin") {
+    return <div className="m-12">Unauthorized</div>
   }
 
   return (

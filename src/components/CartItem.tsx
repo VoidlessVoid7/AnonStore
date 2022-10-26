@@ -16,7 +16,7 @@ type Props = {
 const CartItem = ({ cartProduct }: Props) => {
   const dispatch = useDispatch();
   return (
-    <div className="flex space-x-6 border border-gray-300 p-2">
+    <div className="flex space-x-6 border border-gray-300 p-2 rounded-md">
       <Image
         src={cartProduct.product.image as string}
         width={250}

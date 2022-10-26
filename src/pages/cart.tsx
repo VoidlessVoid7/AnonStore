@@ -35,9 +35,9 @@ const Cart = () => {
               <CartItem key={cartItem.product.id} cartProduct={cartItem} />
             ))}
           </div>
-          <div className="flex w-full flex-col border border-gray-300 p-5 md:w-5/12">
+          <div className="flex w-full flex-col border border-gray-300 p-6 md:w-5/12 rounded-md">
             <p className="mb-8 text-2xl font-semibold">Your Bill</p>
-            <div className="mx-4 flex justify-between pb-6 border-b">
+            <div className="flex justify-between pb-6 border-b">
               <div className="flex flex-col">
                 <p className="text-lg font-semibold">Base Price</p>
                 <p className="mt-8 text-lg font-semibold">Taxes</p>
@@ -46,9 +46,9 @@ const Cart = () => {
                 </p>
               </div>
               <div className="flex flex-col">
-                <p className="text-lg font-light">${basePriceTotal}</p>
-                <p className="mt-8 text-lg font-light">${TAX_RATE * basePriceTotal}</p>
-                <p className="mt-14  text-lg font-light">${basePriceTotal +  TAX_RATE * basePriceTotal}</p>
+                <p className="text-lg ">${basePriceTotal}</p>
+                <p className="mt-8 text-lg">${TAX_RATE * basePriceTotal}</p>
+                <p className="mt-14  text-lg">${basePriceTotal +  TAX_RATE * basePriceTotal}</p>
               </div>
             </div>
           </div>

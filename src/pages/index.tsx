@@ -10,7 +10,7 @@ interface Props {
   products: ProductModel[]
 }
 
-const Home: NextPage<Props> = ({ products }: Props) => {
+const Home: NextPage<Props> = ({ products }) => {
   return (
     <div className="m-12">
       <div className="md:grid lg:grid-cols-4 md:grid-cols-3 gap-20">
@@ -25,7 +25,7 @@ const Home: NextPage<Props> = ({ products }: Props) => {
 export async function getStaticProps() {
   const ssg = createProxySSGHelpers({
     router: appRouter,
-    ctx: {prisma: prisma} as never,
+    ctx: { prisma: prisma } as never,
     transformer: superjson
   })
   const products = await ssg.products.getAllProducts.fetch()

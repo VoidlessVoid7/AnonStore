@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { Button, Navbar as Nav } from "flowbite-react";
 import { signIn, signOut, useSession } from "next-auth/react";
-import { ShoppingCartIcon } from "@heroicons/react/24/outline";
+import { ShoppingBagIcon } from "@heroicons/react/24/outline";
 import { useSelector } from "react-redux";
 import { cartState } from "../redux/cartSlice";
 import { useRouter } from "next/router";
@@ -20,11 +20,11 @@ const Navbar: FC = () => {
         </Nav.Brand>
       </div>
       <div className="flex items-center space-x-2 md:order-2">
-        <ShoppingCartIcon
-          className="mr-2 h-7 w-7 cursor-pointer"
+        <ShoppingBagIcon
+          className="mr-1 h-7 w-7 cursor-pointer"
           onClick={() => router.push("/cart")}
         />
-        <div className="font-medium">{cart.length}</div>
+        <div className="bg-gray-800 text-gray-200 px-[0.55rem] rounded-2xl font-medium">{cart.length}</div>
         <div className="pl-3">
           {session ? (
             <Button color="light" onClick={() => signOut()}>
